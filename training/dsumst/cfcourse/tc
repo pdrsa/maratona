@@ -1,0 +1,7 @@
+2 6
+add 1 100
+add 2 100
+join 1 2
+add 1 100
+get 1
+get 2
