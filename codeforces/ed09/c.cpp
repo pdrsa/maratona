@@ -15,6 +15,17 @@ typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
+bool comp(string a, string b){
+	return (a + b) < (b + a);
+}
+
 int main(){ _
+	int n; cin >> n;
+	vector<string> a(n);
+	for(string &s:a) cin >> s;
+	sort(a.begin(), a.end(), comp);
+	for(string s:a) cout << s;
+	cout << endl;
 	exit(0);
 }

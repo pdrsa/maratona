@@ -16,5 +16,11 @@ typedef pair<ll,ll> iill;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main(){ _
+	int tt; cin >> tt;
+	while(tt--){
+		int a,b,c,d; cin >> a >> b >> c >> d;
+		if(max(a,b) < min(c,d) or max(c,d) < min(a,b)) cout << "NO" << endl;
+		else cout << "YES" << endl;
+	}
 	exit(0);
 }

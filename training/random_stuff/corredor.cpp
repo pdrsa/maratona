@@ -1,4 +1,3 @@
-//JP - Not in Kansas Anymore
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -11,10 +10,21 @@ using namespace std;
 
 typedef long long ll;
 typedef pair<int, int> ii;
-typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
 int main(){ _
+	int n; cin >> n;
+	vector<int> a(n);
+	for(int &i: a) cin >> i;
+	int ans = -INF, sum = -INF;
+	for(int i: a){
+		if(sum < 0) sum = 0;
+		sum += i;
+		ans = max(ans, sum);
+	}
+
+	cout << ans << endl;
 	exit(0);
 }

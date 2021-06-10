@@ -15,6 +15,14 @@ typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
 int main(){ _
+	int tt; cin >> tt;
+	while(tt--){
+		int n; cin >> n;
+		int p = 1;
+		while(p * 2 <= n) p = p*2;
+		cout << p - 1 << endl;
+	}
 	exit(0);
 }

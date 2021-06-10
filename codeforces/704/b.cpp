@@ -15,6 +15,28 @@ typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
 int main(){ _
+	int tt; cin >> tt;
+	while(tt--){
+		int n; cin >> n;
+		vector<ii> v(n);
+		vector<int> p(n);
+		for(int i = 0; i < n; i++){
+			int a; cin >> a;
+			v[i] = {a, i};
+			p[i] = a;
+		}
+
+		sort(v.rbegin(), v.rend());
+		int po = n;
+		for(ii s: v){
+			if(s.s < po){
+				for(int i = s.s; i < po; i++) cout << p[i] << " ";
+				po = s.s;
+			}
+		}
+		cout << endl;
+	}
 	exit(0);
 }

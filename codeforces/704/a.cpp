@@ -15,6 +15,13 @@ typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
 int main(){ _
+	int t; cin >> t;
+	while(t--){
+		ll p, a, b, c; cin >> p >> a >> b >> c;
+		if(p%a == 0 or p%b == 0 or p%c == 0) cout << 0 << endl;
+		else cout << min({a - (p%a), b - (p%b), c - (p%c)}) << endl;
+	}
 	exit(0);
 }

@@ -16,5 +16,7 @@ typedef pair<ll,ll> iill;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main(){ _
+	#warning FILE IN
+	// freopen("file.in", "r", stdin);
 	exit(0);
 }

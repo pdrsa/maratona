@@ -16,5 +16,20 @@ typedef pair<ll,ll> iill;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main(){ _
+	ll count, p; cin >> count >> p;
+	p = p/2;
+	ll m = 1;
+	vector<string> s(count);
+	for(string &t:s) cin >> t;
+	reverse(s.begin(), s.end());
+	ll ap = 2;
+
+	for(int i = 1; i < count; i++){
+		ap *= 2;
+		if(s[i] == "halfplus") ap += 2;
+		m += (ap/2);
+	}
+	cout << m*p << endl;
+
 	exit(0);
 }

@@ -16,5 +16,20 @@ typedef pair<ll,ll> iill;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main(){ _
+	int tt; cin >> tt;
+	while(tt--){
+		int n; cin >> n;
+		string s; cin >> s;
+		vector<bool> ap(26);
+		bool safe = true;
+		for(int i = 0; i < s.size(); i++){
+			int idx = int(s[i] - 'A');
+			if(i and s[i] != s[i-1] and ap[idx]) safe = false;
+			ap[idx] = true;
+		}
+
+		if(safe) cout << "YES" << endl;
+		else cout << "NO" << endl;
+	}
 	exit(0);
 }

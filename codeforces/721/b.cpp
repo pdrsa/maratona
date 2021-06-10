@@ -15,6 +15,16 @@ typedef pair<ll,ll> iill;
 
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
 int main(){ _
+	int tt; cin >> tt;
+	while(tt--){
+		int n; cin >> n;
+		string s; cin >> s;
+		int n0 = 0;
+		for(char c: s) if(c == '0') n0++;
+		if(n % 2 == 1 and n0 > 2 and s[n/2] == '0') cout << "ALICE" << endl;
+		else cout << "BOB" << endl;
+	}
 	exit(0);
 }
