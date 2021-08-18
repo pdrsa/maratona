@@ -31,7 +31,8 @@ ll fact(ll n){
 }
 
 // A escolhe B
-ll choose(ll a, ll b){
+ll choose(ll a, ll b, rep = false){
+	if(rep) return choose(a+b-1, b);
 	ll perm = fact(a);
 	ll div  = ((fact(b) % MOD) * (fact(a-b) % MOD)) % MOD;
 	div     = inv(div, MOD);
