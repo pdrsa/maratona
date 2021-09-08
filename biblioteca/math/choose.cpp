@@ -27,11 +27,14 @@ ll inv(ll a, ll b) {
 ll fact(ll n){
 	if(n == 0) return 1LL;
 	if(fat[n] != -1) return fat[n];
-	else return fat[n] = ((n * fact(n-1)) % MOD);
+	else{
+		for(int i = 1; i < MAX; i++) fat[i] = fact(i-1) * i % MOD;
+		return fat[n];
+	}
 }
 
 // A escolhe B
-ll choose(ll a, ll b, rep = false){
+ll choose(ll a, ll b, bool rep = false){
 	if(rep) return choose(a+b-1, b);
 	ll perm = fact(a);
 	ll div  = ((fact(b) % MOD) * (fact(a-b) % MOD)) % MOD;
