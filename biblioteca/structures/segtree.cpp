@@ -16,7 +16,7 @@ struct Segtree{
 	// Operation
 	ll op(ll a, ll b){ return a+b; };
 
-	void build(vector<int> v){
+	void build(vector<ll> v){
 		sz = v.size();
 		while(__builtin_popcount(sz) != 1){
 			sz++;
@@ -47,5 +47,5 @@ struct Segtree{
 
 	// Friendly
 	ll query(int low, int high){return query(ROOT, 0, sz-1, low, high);}
-	void build(int size){ build(vector<int>(size, id)); };
+	void build(int size){ build(vector<ll>(size, id)); };
 };
