@@ -60,7 +60,7 @@ struct Segtree{
 		if(n_high < q_low or  n_low  >  q_high) return id; // Neutral Element
 		
 		push(node);
-		int mid  = (n_low + n_high)/2; // MId Point of Interval
+		int mid  = (n_low + n_high)/2; // Mid Point of Interval
 		return op(query(node*2,   n_low, mid,    q_low, q_high),
 			      query(node*2+1, mid+1, n_high, q_low, q_high)); // Join halves
 	}
