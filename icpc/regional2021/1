@@ -1,0 +1,77 @@
+//JP - Not in Kansas Anymore
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define _ ios_base::sync_with_stdio(0);cin.tie(0);
+#define endl '\n'
+#define pb push_back
+// #define int ll
+
+typedef long long ll;
+
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+const int MAX = 2e5 + 50;
+
+ll MOD;
+
+vector<ll> rem(MAX), alg(MAX);
+
+ll fexp(ll x, ll y, ll m = MOD) { // recursivo
+	if (!y) return 1;
+	ll ans = fexp(x*x%m, y/2, m);
+	return y%2 ? x*ans%m : ans;
+}
+
+int32_t main(){ _
+	ll b, n; cin >> b >> n;
+	MOD = b+1;
+	// MOD = 1e9 + 7;
+	for(int i = 0; i < n; i++) cin >> alg[i];
+	
+	// Calculate Number
+	rem[n] = 0;
+	for(int i = n-1; i >= 0; i--){
+		rem[i] = (rem[i+1] + alg[i] * (fexp(b, n-i-1) % MOD)) % MOD;
+		rem[i] %= MOD;
+	}
+
+	/*for(int i = 0; i < n; i++) cout << rem[i] << " ";
+	cout << endl;*/
+
+	// Calculate number without algarism
+	for(int i = n-1; i >= 1; i--){
+		if(i != 1) rem[i] = rem[0];
+		else swap(rem[i], rem[0]);
+
+		rem[i] -= (alg[i] * (fexp(b, n-i-1) % MOD));
+		rem[i] = ((rem[i] % MOD) + MOD) % MOD;
+		rem[i] %= MOD;
+	} 
+	
+	/*for(int i = 0; i < n; i++) cout << rem[i] << " ";
+	cout << endl;*/
+	
+
+	// Try for each
+	for(int i = 0; i < n-1; i++){
+		rem[i] = rem[i] % MOD;
+		ll y = MOD - rem[i];
+		ll x = MOD - y;
+		if(alg[i] > x){
+			cout << i+1 << " " << x << endl;
+			exit(0);
+		}
+	}
+
+	// Last try
+	ll y = MOD - rem[n-1];
+	if(alg[n-1] > y){
+		cout << n << " " << y << endl;
+		exit(0);
+	}
+
+	cout << -1 << " " << -1 << endl;
+	exit(0);
+}
