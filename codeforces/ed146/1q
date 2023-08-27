@@ -1,0 +1,45 @@
+//JP - Not in Kansas Anymore
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define _ ios_base::sync_with_stdio(0);cin.tie(0);
+#define endl '\n'
+#define pb push_back
+// #define int ll
+
+typedef long long ll;
+
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
+int32_t main(){ //_
+    int tt; cin >> tt;
+    while(tt--){
+        ll a, b; cin >> a >> b;
+        if(a > b) swap(a,b);
+
+        ll best = INF;
+        ll off  = 0;
+        for(ll i = 0; (1LL << i) <= b; i++){
+            ll pot = (1LL << i);
+            //cout << pot << endl;
+
+            if(a % pot != 0){
+                a -= pot/2;
+                // cout << a << " " << pot << endl;
+                off++;
+            }
+            
+            if(b % pot != 0){
+                b -= pot/2;
+                off++;
+            }
+            
+            best = min(best, (a/pot) + (b/pot) + off);
+            off += (1LL << (i+1)) - (1LL << i);
+        }
+        cout << best << endl;
+    }
+	exit(0);
+}

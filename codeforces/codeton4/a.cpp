@@ -14,6 +14,16 @@ const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 int32_t main(){ _
-	
+    int t; cin >> t;
+    while(t--){
+        int n; cin >> n;
+        bool ok = false;
+        for(int i = 1; i <= n; i++){
+            int x; cin >> x;
+            if(x <= i) ok = true;
+        }
+        if(ok) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
 	exit(0);
 }
